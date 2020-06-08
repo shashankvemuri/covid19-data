@@ -42,12 +42,12 @@ if my_list[0] in daily_state['state'].tolist():
 
 elif my_list[0].lower() == 'help'.lower():
     print ('\nHere is a DataFrame of states and their respective abbreviations:')
-    states = pd.read_csv('/Users/shashank/Documents/GitHub/Code/csv/data.csv', index_col=0)
+    states = pd.read_csv('state_codes.csv', index_col=0)
     states = states.drop(columns = ['Abbrev'])
     print (states)
     
 else: 
     print ('\nEnter a valid state abbreviation! Here is a DataFrame of states and their respective abbreviations:')
-    states = pd.read_csv('/Users/shashank/Documents/GitHub/Code/csv/data.csv', index_col=0)
+    states = pd.read_csv('state_codes.csv', index_col=0)
     states = states.drop(columns = ['Abbrev'])
     print (states)
