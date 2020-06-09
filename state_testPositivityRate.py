@@ -6,7 +6,6 @@ from pylab import rcParams
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
-daily_us = pd.read_json('https://covidtracking.com/api/v1/us/daily.json')
 daily_state = pd.read_json('https://covidtracking.com/api/v1/states/daily.json')
 
 daily_state = daily_state.loc[:, ['date', 'state', 'positive', 'negative', 'death', 'totalTestResults']]
@@ -24,13 +23,9 @@ if my_list[0] in daily_state['state'].tolist():
     daily_state = daily_state.drop(columns = ['state'])
     
     daily_state = daily_state.sort_values('date', ascending = False)
-    daily_state = daily_state.set_index('date')
-    
-    daily_state = daily_state.dropna()
-
-    daily_state = daily_state.reset_index()
     daily_state['date'] = daily_state['date'].apply(lambda x: pd.to_datetime(str(x), format='%Y%m%d'))
     daily_state = daily_state.set_index('date')
+    daily_state = daily_state.dropna()
     print ('\n', daily_state.head())
     
     rcParams['figure.figsize'] = 15, 10
