@@ -26,9 +26,10 @@ if my_list[0] in daily_state['state'].tolist():
     daily_state['date'] = daily_state['date'].apply(lambda x: pd.to_datetime(str(x), format='%Y%m%d'))
     daily_state = daily_state.set_index('date')
     daily_state = daily_state.dropna()
+    daily_state.columns = ['pos', 'neg', 'death', 'totalTests', 'testPositivityRate', 'diff']
     print ('\n', daily_state.head())
     
-    rcParams['figure.figsize'] = 15, 10
+    rcParams['figure.figsize'] = 14, 7
     plt.plot(daily_state['testPositivityRate'])
     plt.title(f'Test Positivity Rate for {my_list[0].upper()}')
     plt.xlabel('Date')
