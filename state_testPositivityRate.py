@@ -13,8 +13,9 @@ daily_state = daily_state.loc[:, ['date', 'state', 'positive', 'negative', 'deat
 daily_state['testPositivityRate'] = round(daily_state['positive'] * 100 / daily_state['totalTestResults'], 2)
 daily_state['difference'] = round(daily_state['testPositivityRate'].pct_change(), 2)
 
-val = input('Enter a state: ')
-my_list = ['{}'.format(val)]
+# val = input('Enter a state: ')
+# my_list = ['{}'.format(val)]
+my_list = ['NJ']
 
 if my_list[0] in daily_state['state'].tolist():
     daily_state = daily_state.set_index('state')

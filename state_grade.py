@@ -30,8 +30,7 @@ E = []
 
 for state in states:
     testPositivityRate = df_dict[state].testPositivityRate.tolist()
-
-    last_rate = testPositivityRate[-1]
+    last_rate = testPositivityRate[0]
 
     if last_rate < 5:
         A.append(state)
