@@ -26,7 +26,6 @@ A = []
 B = []
 C = []
 D = []
-E = []
 
 for state in states:
     testPositivityRate = df_dict[state].testPositivityRate.tolist()
